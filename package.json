@@ -1,0 +1,31 @@
+{
+  "name": "livinhome",
+  "version": "1.0.0",
+  "description": "A small app for demonstrating how to use the Pug templating engine with the Express framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unvalid310/livinhome"
+  },
+  "author": "Ryan Schleck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unvalid310/livinhome/issues"
+  },
+  "homepage": "https://github.com/unvalid310/livinhome#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "jquery": "^3.7.1",
+    "jsdom": "^24.1.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
