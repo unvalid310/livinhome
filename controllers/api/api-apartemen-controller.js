@@ -32,7 +32,7 @@ const getAllApartemen = (req, res) => {
             },
             {
                 "icon": "",
-                "label": "Maksimal 2 orang per kamar",
+                "label": "MLainnyamal 2 orang per kamar",
             }
         ],
         "alamat_property": "Jl. Tarumanegara RT 5 RW 4, Rendangasih, Kota Bandung, Jawa Barat",
@@ -96,7 +96,7 @@ const getAllApartemen = (req, res) => {
             },
             {
                 "icon": "",
-                "label": "Maksimal 2 orang per kamar",
+                "label": "MLainnyamal 2 orang per kamar",
             }
         ],
         "alamat_property": "Perumahan Citra Abdi",
@@ -160,7 +160,7 @@ const getAllApartemen = (req, res) => {
             },
             {
                 "icon": "",
-                "label": "Maksimal 2 orang per kamar",
+                "label": "MLainnyamal 2 orang per kamar",
             }
         ],
         "alamat_property": "Perumahan Citra Abdi",

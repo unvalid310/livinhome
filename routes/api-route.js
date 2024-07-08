@@ -3,18 +3,18 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 const {
-    getAllKontrakan,
-} = require("../controllers/api/api-kontrakan-controller");
+    getAllProperti,
+} = require("../controllers/api/api-properti-controller");
 const {
-    getAllKost,
-} = require("../controllers/api/api-kost-controller");
+    getAllPenywaProperti,
+} = require("../controllers/api/api-penyewa-controller");
 const {
-    getAllApartemen,
-} = require("../controllers/api/api-apartemen-controller");
+    getAllPesanan,
+} = require("../controllers/api/api-pesanan-controller");
 
 
-router.post('/kontrakan', getAllKontrakan);
-router.post('/kost', getAllKost);
-router.post('/apartemen', getAllApartemen);
+router.post('/properti', getAllProperti);
+router.post('/penyewa', getAllPenywaProperti);
+router.post('/daftar-penyewa', getAllPesanan);
 
 module.exports = router;

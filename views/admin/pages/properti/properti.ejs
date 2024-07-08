@@ -1,0 +1,102 @@
+    <%- contentFor('body') %>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="dataTables" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th>Nama Property</th>
+                                    <th>Alamat</th>
+                                    <th class="text-center">Kamar</th>
+                                    <th class="text-center">Nama Pemilik</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Lainnya</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var table = $('#dataTables').DataTable({
+                processing: false,
+                serverSide: true,
+                ajax: {
+                    url: '/api/properti',
+                    type: "POST",
+                },
+                order: [0, "asc"],
+                columns: [{
+                        className: "text-center",
+                        width: "10%",
+                        data: {data: "no"},
+                        render: function (data, type, row, meta) {
+                            return data.no;
+                        }
+                    },{
+                        className: "text-left",
+                        width: "20%",
+                        data: {data: "nama_property"},
+                        render: function (data, type, row, meta) {
+                            return data.nama_property;
+                        }
+                    },{
+
+                        className: "text-left",
+                        width: "20%",
+                        data: {data: "alamat_property"},
+                        render: function (data, type, row, meta) {
+                            return data.alamat_property;
+                        }
+                    },{
+
+                        className: "text-center",
+                        width: "5%",
+                        data: {data: "kamar_tidur"},
+                        render: function (data, type, row, meta) {
+                            return data.kamar_tidur;
+                        }
+                    },{
+
+                        className: "text-left",
+                        width: "20%",
+                        data: {data: "pemilik"},
+                        render: function (data, type, row, meta) {
+                            return data.pemilik;
+                        }
+                    },{
+
+                        className: "text-center",
+                        width: "10%",
+                        data: {data: "livinmates"},
+                        render: function (data, type, row, meta) {
+                            return data.livinmates;
+                        }
+                    },{
+
+                        className: "text-center",
+                        width: "15%",
+                        data: {data: "id"},
+                        render: function (data, type, row, meta) {
+                            return '<a href="/kontrakan/'+data.id+'" class="btn btn-sm btn-success mr-2"><i class="icon-eye"></i></a>'+
+                            '<button class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>';
+                        }
+                    },
+                ],
+                columnDefs: [{
+                    "orderable": false,
+                    "targets": 6
+                }],
+            });
+        });
+    </script>

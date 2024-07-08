@@ -16,9 +16,9 @@ app.use(expressLayouts);
 // telling express where to find our templates.  This IS views by default
 app.set('views', 'views');
 
-// importing our pug middleware
 const adminRoutes = require('./routes/admin-route');
 const apiRoutes = require('./routes/api-route');
+const mainRoutes = require('./routes/main-route');
 
 // allowing user submitted data to be available in the request object
 app.use(bodyParser.urlencoded({
@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, "public")));
 
 // using our pug middleware functions to handle http requests beginning with '/pugs'
+app.use('/', mainRoutes);
 app.use('/admin', adminRoutes);
 app.use('/api', apiRoutes);
 
