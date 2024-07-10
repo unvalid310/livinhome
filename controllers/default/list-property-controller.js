@@ -1,4 +1,5 @@
-const indexHome = (req, res) => {
+const indexKost = (req, res) => {
+    var page = req.query.page;
     var data = {
         rekomendasi: [{
             pemilik: 'Kontrakan Pak Ade',
@@ -86,18 +87,26 @@ const indexHome = (req, res) => {
         currency: 'IDR',
     });
 
-    res.render(
-        'default/pages/home/home-page', {
-            modal: null,
-            pageTitle: 'Livin Home - Beranda ',
-            layout: 'default/default-layout',
-            data: data,
-            formatNumber: formatter,
-            extractScripts: true,
-            extractStyles: true,
-        });
+    if (page == 'kost' || page == 'kontrakan' || page == 'apartemen') {
+        return res.render(
+            'default/pages/properti/property-page', {
+                modal: null,
+                pageTitle: 'Livin Home - Daftar Kost ',
+                page: page,
+                data: data,
+                formatNumber: formatter,
+                layout: 'default/default-layout',
+                extractScripts: true,
+                extractStyles: true,
+            });
+    }
+
+    return res.status(404).render('404', {
+        pageTitle: 'Page Not Found',
+        layout: '404'
+    });
 }
 
 module.exports = {
-    indexHome,
+    indexKost,
 };
