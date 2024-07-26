@@ -1,6 +1,6 @@
 const login = (req, res, next) => {
     res.render('admin/pages/auth/login-page', {
-        pageTitle: 'Livin Home - Login',
+        pageTitle: 'Livinhome - Login',
         layout: 'admin/pages/auth/login-page',
     });
 }

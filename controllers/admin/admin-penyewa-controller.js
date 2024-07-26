@@ -1,7 +1,7 @@
 const indexPenyewaKontrakan = (req, res) => {
     res.render('admin/pages/penyewa/penyewa', {
         modal: null,
-        pageTitle: 'Livin Home - Penyewa Kontrakan ',
+        pageTitle: 'Livinhome - Penyewa Kontrakan ',
         title: 'Daftar Penyewa Kontrakan',
         layout: 'admin/admin-layout',
         extractScripts: true,
@@ -11,7 +11,7 @@ const indexPenyewaKontrakan = (req, res) => {
 const indexPenyewaKost = (req, res) => {
     res.render('admin/pages/penyewa/penyewa', {
         modal: null,
-        pageTitle: 'Livin Home - Penyewa Kost ',
+        pageTitle: 'Livinhome - Penyewa Kost ',
         title: 'Daftar Penyewa Kost',
         layout: 'admin/admin-layout',
         extractScripts: true,
@@ -21,7 +21,7 @@ const indexPenyewaKost = (req, res) => {
 const indexPenyewaApartemen = (req, res) => {
     res.render('admin/pages/penyewa/penyewa', {
         modal: null,
-        pageTitle: 'Livin Home - Penyewa Apartemen ',
+        pageTitle: 'Livinhome - Penyewa Apartemen ',
         title: 'Daftar Penyewa Apartemen',
         layout: 'admin/admin-layout',
         extractScripts: true,

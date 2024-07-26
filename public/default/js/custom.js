@@ -37,9 +37,13 @@ jQuery(function ($) {
   jQuery(window).bind('scroll', function () {
     if (jQuery(window).scrollTop() > 200) {
       jQuery('.main-navbar').addClass('navbar-fixed-top');
-
     } else {
       jQuery('.main-navbar').removeClass('navbar-fixed-top');
+    }
+    if (jQuery(window).scrollTop() > 200 && jQuery(window).scrollTop() < $('#product').height() - 370) {
+      // jQuery('.product-details-deskripsi').addClass('deskripsi-fixed');
+    } else {
+      // jQuery('.product-details-deskripsi').removeClass('deskripsi-fixed');
     }
   });
 
@@ -93,4 +97,5 @@ jQuery(function ($) {
       prevEl: ".swiper-button-prev",
     },
   });
+
 });

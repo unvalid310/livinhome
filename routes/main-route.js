@@ -6,10 +6,18 @@ const {
     indexHome,
 } = require("../controllers/default/home-controller.js");
 const {
-    indexKost,
-} = require("../controllers/default/list-property-controller.js");
+    indexProperty,
+    detailProperty,
+    checkoutProperty,
+} = require("../controllers/default/property-controller.js");
+const {
+    indexLivinmate,
+} = require("../controllers/default/livinmate-controller.js");
 
 router.get('/', indexHome);
-router.get('/property', indexKost);
+router.get('/property', indexProperty);
+router.get('/property-detail', detailProperty);
+router.get('/checkout', checkoutProperty);
+router.get('/livinmate', indexLivinmate);
 
 module.exports = router;

@@ -1,0 +1,87 @@
+    <link rel="stylesheet" href="default/vendor/dropzone-master/dist/dropzone.css">
+    <%- contentFor('body') %>
+    <section id="product" style="background-color: #FFF;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <form id="form-checkout" action="javascript:void(0)">
+                        <div id="info-penyewa" class="form-group d-flex">
+                            <h4>Informasi Penyewa</h4> <a href="javascript:void(0)"><i class="fa fa-edit"></i></a>
+                        </div>
+                        <div class="form-group">
+                            <h4>Nama Lengkap</h4>
+                            <p class="text-muted">Farhan Utomo</p>
+                        </div>
+                        <div class="form-group">
+                            <h4>Nomor HP</h4>
+                            <p class="text-muted">08566666666</p>
+                        </div>
+                        <div class="form-group">
+                            <h4>Jenis Kelamin</h4>
+                            <p class="text-muted">Laki-Laki</p>
+                        </div>
+                        <div class="form-group">
+                            <h4>Pekerjaan</h4>
+                            <p class="text-muted">Mahasiswa</p>
+                        </div>
+                        <div class="form-group">
+                            <h4>Nama Perguruan Tinggi</h4>
+                            <p class="text-muted">Telkom University</p>
+                        </div>
+                        <div class="form-group" style="margin-top: 40px;">
+                            <h4>Dokumen Penyewa</h4>
+                        </div>
+                        <div class="info">
+                            <i class="pe-7s pe-7s-info"></i> <u>Dokumen yang kamu unggah akan tersimpan di profil.</u>
+                        </div>
+                        <div class="form-group" style="padding: 20px 0;">
+                            <div class="dropzone" id="ktp">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple />
+                                </div>
+                            </div>
+                            <h5 class="text-center"><span><b>Foto KTP</b> <small class="text-danger">*</small></span></h5>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="product-details-deskripsi round-bordered">
+                        <div class="properti-detail d-flex">
+                            <img src="<%= data.image[0] %>" width="200px">
+                            <div class="deskripsi">
+                                <h5><b><%= data.properti %></b></h5>
+                                <div class="fasilitas">
+                                    <ul>
+                                        <li><i class="icon-ic-bath"></i><small>3</small></li>
+                                        <li><i class="icon-ic-bed"></i><small>5</small></li>
+                                        <li><i class="icon-ic-viewport-wide"></i><small>105 m<sup>2</sup></small></li>
+                                    </ul>
+                                </div>
+                                <p class="text-muted"><%= data.alamat %></p>
+                            </div>
+                        </div>
+                        <h4><b>Rincian Pembayaran Uang Muka (DP)</b></h4>
+                        <div class="info">
+                            <i class="pe-7s pe-7s-info"></i> <u>Pembayaran DP dilakukan setelah pengajuan sewa disetujui pemilik.</u>
+                        </div>
+                        <ul class="amount">
+                            <li><h5 class="text-muted">Biaya sewa unit properti</h5> <b>Rp. 60.000.000</b></li>
+                            <li><h5 class="text-muted">Uang muka DP (20%)</h5> <b>Rp. 12.000.000</b></li>
+                            <li class="total"><h5 class="text-muted">Uang muka DP (20%)</h5> <b>Rp. 12.000.000</b></li>
+                        </ul>
+                        <div class="info" style="padding-bottom: 10px;">
+                            <i class="pe-7s pe-7s-info"></i> <u>Pembayaran pelunasan maksimal h-7 dari masa sewa unit (23 Desember 2024).</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="default/vendor/dropzone-master/dist/dropzone.js"></script>
+    <script>
+        jQuery(function($) {
+            // var dropzone = new Dropzone('#ktp', {url: 'localhost'});
+        });
+    </script>

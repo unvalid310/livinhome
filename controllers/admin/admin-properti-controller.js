@@ -1,7 +1,7 @@
 const indexPemilikKontrakan = (req, res) => {
     res.render('admin/pages/properti/properti', {
         modal: null,
-        pageTitle: 'Livin Home - Pemilik Kontrakan ',
+        pageTitle: 'Livinhome - Pemilik Kontrakan ',
         title: 'Daftar Kontrakan',
         layout: 'admin/admin-layout',
         extractScripts: true,
@@ -11,7 +11,7 @@ const indexPemilikKontrakan = (req, res) => {
 const indexPemilikKost = (req, res) => {
     res.render('admin/pages/properti/properti', {
         modal: null,
-        pageTitle: 'Livin Home - Pemilik Kost ',
+        pageTitle: 'Livinhome - Pemilik Kost ',
         title: 'Daftar Kost',
         layout: 'admin/admin-layout',
         extractScripts: true,
@@ -21,7 +21,7 @@ const indexPemilikKost = (req, res) => {
 const indexPemilikApartemen = (req, res) => {
     res.render('admin/pages/properti/properti', {
         modal: null,
-        pageTitle: 'Livin Home - Pemilik Apartemen ',
+        pageTitle: 'Livinhome - Pemilik Apartemen ',
         title: 'Daftar Apartemen',
         layout: 'admin/admin-layout',
         extractScripts: true,

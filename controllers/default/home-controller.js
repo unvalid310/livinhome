@@ -89,7 +89,7 @@ const indexHome = (req, res) => {
     res.render(
         'default/pages/home/home-page', {
             modal: null,
-            pageTitle: 'Livin Home - Beranda ',
+            pageTitle: 'Livinhome - Beranda ',
             layout: 'default/default-layout',
             data: data,
             formatNumber: formatter,

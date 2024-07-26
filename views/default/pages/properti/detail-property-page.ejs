@@ -1,0 +1,536 @@
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <%- contentFor('body') %>
+    <section id="product" style="background-color: #F4F4F4;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 div col-md-7">
+                    <div class="product-details-img">
+
+                        <!-- Single Product Image Start -->
+                        <div class="single-product-img swiper-container gallery-top">
+                            <div class="swiper-wrapper popup-gallery">
+                                <% 
+                                    (data.image).forEach(function(rekomendasi) {
+                                %>
+                                <a class="swiper-slide w-100" href="<%= rekomendasi %>">
+                                    <img class="w-100" src="<%= rekomendasi %>" alt="Product">
+                                </a>
+                                <% 
+                                    })
+                                %>
+                            </div>
+                        </div>
+                        <!-- Single Product Image End -->
+
+                        <!-- Single Product Thumb Start -->
+                        <div class="single-product-thumb swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper">
+                                <% 
+                                    (data.image).forEach(function(rekomendasi) {
+                                %>
+                                <div class="swiper-slide">
+                                    <img src="<%= rekomendasi %>" alt="Product" width="100px" height="100px">
+                                </div>
+                                <% 
+                                    })
+                                %>
+                            </div>
+                            
+                            <div class="swiper-button-horizental-next swiper-button-next"><i class="pe-7s-angle-right"></i></div>
+                            <div class="swiper-button-horizental-prev swiper-button-prev"><i class="pe-7s-angle-left"></i></div>
+
+                        </div>
+                        <!-- Single Product Thumb End -->
+
+                    </div>
+
+                    <div class="row short-deskripsi">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="title d-flex">
+                                <h3><%= helper.ucwords(data.properti) %></h3>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#modalPenilaian">
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span>5.0 (2 Penilaian)</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="address d-flex">
+                                <p>
+                                    <%= helper.ucwords(data.alamat) %>
+                                </p>
+                                <div class="action">
+                                    <button class="btn btn-dark btn-outline btn-rounded" style="margin-right: 5px;"><i class="fa fa-share"></i> Bagikan</button>
+                                    <button class="btn btn-dark btn-outline btn-circle"><i class="fa fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="d-flex spesifik">
+                                <div class="item">
+                                    <small>Transaksi Berhasil</small>
+                                    <div class="item-value">
+                                        <i class="icon-ic-report-money"></i>
+                                        <small>3 Berhasil</small>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <small>Luas Tanah</small>
+                                    <div class="item-value">
+                                        <i class="icon-ic-viewport-wide"></i>
+                                        <small>180 m<sup>2</sup></small>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <small>Luas Rumah</small>
+                                    <div class="item-value">
+                                        <i class="icon-ic-home-share"></i>
+                                        <small>120 m<sup>2</sup></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex spesifik" style="padding-top: 15px;">
+                                <div class="item">
+                                    <small>Kapasitas Garasi</small>
+                                    <div class="item-value">
+                                        <i class="icon-ic-car-garage"></i>
+                                        <small>2 Mobil</small>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <small>Daya Listrik</small>
+                                    <div class="item-value">
+                                        <i class="icon-ic-bolt"></i>
+                                        <small>1300 Watt</small>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <small>Sumber Air</small>
+                                    <div class="item-value">
+                                        <i class="icon-ic-bath"></i>
+                                        <small>PDAM</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="row product-tabs">
+                        <!-- Single Product Tab Start -->
+                        <div class="col-lg-12 col-custom single-product-tab">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="active">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#connect-1">Deskripsi</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#connect-2">Aturan</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#connect-3">Lokasi</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" id="review-tab" data-toggle="tab" href="#connect-4">Spesifikasi</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content mb-text" id="myTabContent">
+                                <div class="tab-pane active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
+                                    <p class="mb-3">Bismillah, dikontrakan tahunan (tidak menerima bulanan) rumah cat abu2 (cat ungu sudah terisi)</p>
+                                    <lo>
+                                        <li>Bangunan baru, bersih, minimalis</li>
+                                        <li>Cocok untuk pasutri atau keluarga kecil</li>
+                                        <li>Bismillah, dikontrakan tahunan (tidak menerima bulanan) rumah cat abu2 (cat ungu sudah terisi)</li>
+                                        <li>1 Ruang Utama, 1 Kamar Tidur, 1 Kamar Mandi, 1 Dapur, 1 Ruang cuci dan jemuran di belakang, 1 Teras Depan cukup untuk 4 motor</li>
+                                        <li>Akses Jalan masuk mobil</li>
+                                        <li>Plafon tinggi agar suhu rumah sejuk</li>
+                                        <li>Air PDAM lancar, Torn air 1000m3</li>
+                                        <li>koneksi sambungan Internet kabel</li>
+                                        <li>Kuldesak, jadi aman utk bermain anak2</li>
+                                        <li>Lokasi sangat strategis, 150m ke Jalur utama angkot Jl Terusan Jakarta, belakang Domino Pizza. Dekat borma Antapani, pom antapani, fly over antapani</li>
+                                        <li>keamanan 24 jam (malam di portal)</li>
+                                        <li>lingkungan nyaman,tetangga ramah</li>
+                                        <li>baru bisa di survey pertengahan bulan oktober, karena skrg msh dihuni pengontrak lama</li>
+                                    </lo>
+                                </div>
+                                <div class="tab-pane" id="connect-2" role="tabpanel" aria-labelledby="profile-tab">
+                                    <ul class="aturan">
+                                        <li>
+                                            <i class="icon-ic-clock"></i>
+                                            <small>Akses 24 Jam</small>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ic-ear-off"></i>
+                                            <small>Dilarang Berisik</small>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ic-gender-bigender"></i>
+                                            <small>Lawan jenis dilarang menginap</small>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ic-baby-carriage"></i>
+                                            <small>Dilarang membawa anak</small>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ic-bed"></i>
+                                            <small>Maksimal 2 orang per kamar</small>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" id="connect-3" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="row lokasi">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div id="maps"></div>
+                                            <ul id="lokasi">
+                                                <li>
+                                                    <i class="icon-ic-school"></i>
+                                                    <div class="title">
+                                                        <h4>Universitas Komputer</h4>
+                                                        <small>234 m</small>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-ic-building-store"></i>
+                                                    <div class="title">
+                                                        <h4>Indomaret</h4>
+                                                        <small>500 m</small>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-ic-kitchen-2"></i>
+                                                    <div class="title">
+                                                        <h4>RM Padang Bundo</h4>
+                                                        <small>234 m</small>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-ic-mosque"></i>
+                                                    <div class="title">
+                                                        <h4>Masjid At-taufiq</h4>
+                                                        <small>234 m</small>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-ic-hospital"></i>
+                                                    <div class="title">
+                                                        <h4>Rumah Sakit Boromeus</h4>
+                                                        <small>234 m</small>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="connect-4" role="tabpanel" aria-labelledby="review-tab">
+                                    <div class="spesifikasi row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3 class="text-center"><b>Fasilitas Rumah</b></h3>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <ul>
+                                                        <li><i class="icon-ic-bed"></i> <small>5 K. Tidur</small></li>
+                                                        <li><i class="icon-ic-bath"></i> <small>5 K. Mandi</small></li>
+                                                        <li><i class="icon-ic-sofa-outline"></i> <small>1 R. Tamu</small></li>
+                                                        <li><i class="icon-ic-tv"></i> <small>1 R. Kelluarga</small></li>
+                                                        <li><i class="icon-ic-packages"></i> <small>1 Gudang</small></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <ul>
+                                                        <li><i class="icon-ic-stove"></i> <small>1 Dapur</small></li>
+                                                        <li><i class="icon-ic-dining-room"></i> <small>1 R. Makan</small></li>
+                                                        <li><i class="icon-ic-clothesline"></i> <small>1 R. Jemur</small></li>
+                                                        <li><i class="icon-ic-baseline-balcony"></i> <small>2 Balkon</small></li>
+                                                        <li><i class="icon-ic-car-garage"></i> <small>1 Garasi</small></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3 class="text-center"><b>Fasilitas Kamar</b></h3>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <ul>
+                                                        <li><i class="icon-ic-cupboard"></i> <small>4 Lemari</small></li>
+                                                        <li><i class="icon-ic-two-beds"></i> <small>5 Kasur</small></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <ul>
+                                                        <li><i class="icon-ic-pillow"></i> <small>10 Bantal</small></li>
+                                                        <li><i class="icon-ic-air-conditioner"></i> <small>4 AC</small></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="spesifikasi row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3 class="text-center"><b>Fasilitas Kamar Mandi</b></h3>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <ul>
+                                                        <li><i class="icon-ic-toilet"></i> <small>3 Kloset duduk</small></li>
+                                                        <li><i class="icon-ic-shower"></i> <small>2 Shower</small></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <ul>
+                                                        <li><i class="icon-ic-shower"></i> <small>2 Shower</small></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product Tab End -->
+                    </div>
+
+                </div>
+                <div class="col-lg-5 div col-md-5">
+                    <div class="product-details-deskripsi">
+                        <div class="profile d-flex">
+                            <img src="default/img/avatar/user.png" alt="">
+                            <div class="profile-deskripsi">
+                                <h4><%= data.nama_pemilik %></h4>
+                                <p>Pemilik Properti</p>
+                            </div>
+                            <div class="profile-rating">
+                                <span><i class="fa fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                        <div class="history d-flex">
+                            <div class="item">
+                                <i class="icon-ic-properti"></i>
+                                <small>Memiliki 2 Properti</small>
+                            </div>
+                            <div class="item">
+                                <i class="icon-ic-credit-card"></i>
+                                <small>3 Transaksi Berhasil</small>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <span><h3><%= helper.formatCurrency(data.price) %></h3>/Tahun</span>
+                        </div>
+                        <div class="order">
+                            <form action="javascript:void(0)" method="get">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input id="check-in" type="text" placeholder="Mulai check in" readonly>
+                                            <div class="apped-icon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <select name="" class="form-control">
+                                                <option value="" selected="" hidden="">Durasi Sewa</option>
+                                                <option value="6">6 Bulan</option>
+                                                <option value="12">12 Bulan</option>
+                                                <option value="12">Pertahun</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-action" style="background-color: transparent !important; padding:0">
+                                    <button type="submit" class="btn btn-dark btn-rounded" style="margin-bottom: 20px;" data-toggle="modal" data-target="#modalOrder">Pesan Sekarang</button>
+                                    <button class="btn btn-dark btn-outline btn-rounded">Jadwalkan Survei</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Start  -->
+    <div id="modalPenilaian" class="modalquickview modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content-lg">
+                <button class="btn close" data-dismiss="modal">×</button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="rating">
+                                <i class="fa fa-star"></i> <small>5.0 (2 penilaian)</small>
+                            </div>
+                            <div class="list-rating row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li>
+                                            <h5>Kebersihan</h5>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <small>5.0</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h5>Kenyamanan</h5>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <small>5.0</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h5>Keamanan</h5>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <small>5.0</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li>
+                                            <h5>Harga</h5>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <small>5.0</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h5>Fasilitas Rumah</h5>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <small>5.0</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h5>Akses Kendaraan</h5>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <small>5.0</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="list-penilaian">
+                                <ul>
+                                    <li>
+                                        <div class="penyewa">
+                                            <div class="account">
+                                                <img src="default/img/avatar/user.png" alt="">
+                                                <div class="detail">
+                                                    <h5>Ksatria</h5>
+                                                    <small class="text-muted">27 September 2024</small>
+                                                </div>
+                                            </div>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <small>5.0</small>
+                                            </div>
+                                        </div>
+                                        <div class="penilaian">
+                                            <p>Kontrakan sangat nyaman!!, pengen diperpanjang tapi kuliahnya udah lulus huhu.</p>
+                                        </div>
+                                        <div class="replay">
+                                            <h5>Balasan pemilik</h5>
+                                            <p>Terimakasih kak atas ratingnya</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="penyewa">
+                                            <div class="account">
+                                                <img src="default/img/avatar/user.png" alt="">
+                                                <div class="detail">
+                                                    <h5>Gilang Pramuka</h5>
+                                                    <small class="text-muted">11 September 2023</small>
+                                                </div>
+                                            </div>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <small>5.0</small>
+                                            </div>
+                                        </div>
+                                        <div class="penilaian">
+                                            <p>Pengalaman paling nyaman ngontrak selama aku di bandung, bapak kostnya sangat ramah, lingkungannya nyaman gaberisik dan akses mudah ditambah gaterlalu jauh kekampus.</p>
+                                        </div>
+                                        <div class="replay">
+                                            <h5>Balasan pemilik</h5>
+                                            <p>Terimakasih kak Gilang atas ratingnya semangat menempuh dunia kerja</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End  -->
+
+
+
+    <!-- Modal Start  -->
+    <div id="modalOrder" class="modalquickview modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row order">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="title">
+                                <h4>Maksimalkan Fitur Survei</h4>
+                                <button class="btn close" data-dismiss="modal"><i class="fa fa-close"></i></button>
+                            </div>
+                            <div class="order-slider swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <% 
+                                            (orderSlider).forEach(function(slider) {
+                                        %>
+                                        <div class="swiper-slide">
+                                            <img src="<%= slider.image %>" alt="Product" width="100%">
+                                            <div class="deskripsi">
+                                                <p class="text-center"><%= slider.deskripsi %></p>
+                                            </div>
+                                        </div>
+                                        <% 
+                                            })
+                                        %>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                            </div>
+                            <div class="order-navigation text-center">
+                                <button type="submit" id="button-navigation" class="btn btn-dark btn-rounded">Lanjutkan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End  -->
+
+  <script src="default/js/detail-property.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  
